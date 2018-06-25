@@ -9,7 +9,11 @@ vgo是Go语言推出的第三方库管理工具，即将在Go语言新版本中�
 Go语言官方以前一直没有明确正式的包管理工具，因此导致包管理工具非常混乱，比如dep，glide，govendor，godep等。(虽然dep也是Go语言官方推出的，但是它最终会被放弃。)  
 vgo的推出，是Go语言社区的需要，将解决包管理工具混乱的问题。Go语言官方将使用这个依赖工具为主，所以我们有必要提前了解一下它的使用。  
 
-(vgo即英文versioned go的缩写)
+(vgo即英文versioned go的缩写)  
+
+Go官方说会在Go1.11中使用vgo，这个说明是在go wiki的《[vgo user guide](https://github.com/golang/go/wiki/vgo-user-guide)》一节中讲到的。  
+
+Go1.11会在2018年8月推出，这个说明是在《[Go 1.11 Release Notes](https://tip.golang.org/doc/go1.11)》中讲到的，此处链接需要跳墙。  
 
 ## vendor目录
 
@@ -37,13 +41,13 @@ vendor目录是Go1.5版本后添加的依赖包管理目录。
 
 ### 1、项目目录下的go.mod文件
 
-go.mod文件像Java maven的pom.xml文件，PHP的composer.json文件，就是依赖的配置文件。  
+go.mod文件像Java maven的pom.xml文件，PHP的composer.json文件，就是依赖的配置文件，放在项目的根目录下。  
 
 `切记，go.mod文件至少要有 module 字段！！！`  
 (提示：为了这个，有些人还在main包使用注释`package main // import "xxx"`语句来生成，其实你只要在go.mod文件指示这个项目的包路径就可以了，可以不要注释了。)  
 
 go.mod文件常用字段：  
-module 指示这个项目的包路径  
+module 指示这个项目的包路径(别人怎么引用你的包名称)  
 require 必须依赖  
 exclude 排除依赖  
 replace 替换依赖  
@@ -70,9 +74,12 @@ replace 替换依赖
 
 ## 参考资料
 
+- vgo user guide(英文)：<https://github.com/golang/go/wiki/vgo-user-guide>
 - vgo进入Go语言仓库的commit：<https://github.com/golang/go/commit/5756895877492e3427c92e9ec8784eb1f4b01474>
 - vgo仓库：<https://github.com/golang/vgo>
+- vgo wiki(英文)：<https://github.com/golang/go/wiki/vgo>
 - vgo设计理念(英文，有墙)：<https://research.swtch.com/vgo>
+- Go 1.11 Release Notes(英文，有墙)：<https://tip.golang.org/doc/go1.11>
 
 ## 修正建议
 
