@@ -1,4 +1,4 @@
-module hello
+module github.com/wuyumin/vgo/examples/gin
 
 require (
 	github.com/gin-gonic/gin v1.1.4
